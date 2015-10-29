@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var tapView: UIView!;
     
     let tapRec = UITapGestureRecognizer();
-    
+    let theme:String = "digital";
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,6 +36,8 @@ class FirstViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         setTabBarVisible(!tabBarIsVisible(), animated: true)
+
+        pointImageView.image = UIImage(named: String(format: "%@_number_11.png", theme));
     }
 
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -73,10 +75,10 @@ class FirstViewController: UIViewController {
         let c:Int = minute/10;
         let d:Int = minute % 10;
         
-        hourImageView1.image = UIImage(named: String(format: "number_0%d.png", a));
-        hourImageView2.image = UIImage(named: String(format: "number_0%d.png", b));
-        minuteImageView1.image = UIImage(named: String(format: "number_0%d.png", c));
-        minuteImageView2.image = UIImage(named: String(format: "number_0%d.png", d));
+        hourImageView1.image = UIImage(named: String(format: "%@_number_0%d.png", theme,a));
+        hourImageView2.image = UIImage(named: String(format: "%@_number_0%d.png", theme,b));
+        minuteImageView1.image = UIImage(named: String(format: "%@_number_0%d.png", theme,c));
+        minuteImageView2.image = UIImage(named: String(format: "%@_number_0%d.png", theme,d));
         
         pointImageView.hidden = !pointImageView.hidden;
 
