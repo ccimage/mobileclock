@@ -21,7 +21,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        changeImageSize();
+        changeImageSize(false);
         doTimer();
         
         tapRec.addTarget(self, action: "tappedView");
@@ -41,15 +41,20 @@ class FirstViewController: UIViewController {
     }
 
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        changeImageSize();
+        let fromPortrait:Bool = (fromInterfaceOrientation == UIInterfaceOrientation.Portrait) || (fromInterfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown);
+        changeImageSize(fromPortrait);
     }
     
-    func changeImageSize(){
+    func changeImageSize(fromPortrait:Bool){
         let screenBounds:CGRect = UIScreen.mainScreen().bounds;
         let width = screenBounds.size.width;
-        let height = screenBounds.size.height;
-        let eachWidth = width / 5;
-        
+        var height = screenBounds.size.height;
+        var eachWidth = width / 5;
+        if(fromPortrait && width < height){
+            eachWidth = height / 5;
+            height = width;
+        }
+
         hourImageView1.frame = CGRectMake(0, 0, eachWidth, height);
         hourImageView2.frame = CGRectMake(eachWidth, 0, eachWidth, height);
         pointImageView.frame = CGRectMake(eachWidth * 2, 0, eachWidth, height);
