@@ -38,6 +38,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                             </imageView>
+                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="nuV-ko-Ei4">
+                                <rect key="frame" x="0.0" y="-33" width="320" height="601"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,15 +55,16 @@
                     <connections>
                         <outlet property="hourImageView1" destination="Vwr-dT-cRu" id="AJM-M8-aS6"/>
                         <outlet property="hourImageView2" destination="Am0-HT-TpT" id="Gfm-49-dKR"/>
+                        <outlet property="mainView" destination="tsR-hK-woN" id="1qz-MK-mHz"/>
+                        <outlet property="maskView" destination="nuV-ko-Ei4" id="ky3-m0-ksD"/>
                         <outlet property="minuteImageView1" destination="RvP-Pf-cYA" id="MMZ-oK-2BB"/>
                         <outlet property="minuteImageView2" destination="zwo-zc-W2Y" id="S69-QJ-br9"/>
                         <outlet property="pointImageView" destination="dZW-mL-aij" id="vT9-oo-p7X"/>
-                        <outlet property="tapView" destination="tsR-hK-woN" id="ded-sV-vgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414.93333333333334" y="-282.10666666666668"/>
+            <point key="canvasLocation" x="414" y="-283"/>
         </scene>
         <!--设置-->
         <scene sceneID="wg7-f3-ORb">

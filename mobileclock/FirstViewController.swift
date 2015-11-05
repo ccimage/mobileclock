@@ -14,9 +14,12 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var minuteImageView1: UIImageView!
     @IBOutlet weak var minuteImageView2: UIImageView!
     @IBOutlet weak var pointImageView: UIImageView!
-    @IBOutlet weak var tapView: UIView!;
+    @IBOutlet weak var mainView: UIView!;
+    @IBOutlet weak var maskView : UIView!;
     
     let tapRec = UITapGestureRecognizer();
+    let swipeRec1 = UISwipeGestureRecognizer();
+    let swipeRec2 = UISwipeGestureRecognizer();
     let theme:String = "digital";
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +27,14 @@ class FirstViewController: UIViewController {
         changeImageSize(false);
         doTimer();
         
+        swipeRec1.direction = UISwipeGestureRecognizerDirection.Down;
+        swipeRec2.direction = UISwipeGestureRecognizerDirection.Up;
         tapRec.addTarget(self, action: "tappedView");
-        tapView.addGestureRecognizer(tapRec);
+        swipeRec1.addTarget(self, action: "swipeViewDown:");
+        swipeRec2.addTarget(self, action: "swipeViewUp:");
+        mainView.addGestureRecognizer(tapRec);
+        mainView.addGestureRecognizer(swipeRec1);
+        mainView.addGestureRecognizer(swipeRec2);
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,6 +118,21 @@ class FirstViewController: UIViewController {
     func tappedView(){
         setTabBarVisible(!tabBarIsVisible(), animated: true)
     }
+    
+    func swipeViewDown(sender:UISwipeGestureRecognizer){
+        maskView.alpha+=0.1;
+        if(maskView.alpha>=0.8){
+            maskView.alpha = 0.8;
+        }
+    }
+    func swipeViewUp(sender:UISwipeGestureRecognizer){
+        maskView.alpha-=0.1;
+        if(maskView.alpha<=0){
+            maskView.alpha = 0;
+
+        }
+    }
+
     
 }
 
