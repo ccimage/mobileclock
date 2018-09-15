@@ -72,13 +72,13 @@ class FirstViewController: UIViewController {
         
     }
     func doTimer(){
-        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("timerFireMethod:")), userInfo: nil, repeats:true);
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFireMethod), userInfo: nil, repeats:true);
         timer.fire()
     }
     func timerFireMethod(timer: Timer) {
         let now = NSDate();
         
-        let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier(rawValue: NSChineseCalendar));
+        let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.chinese);
         
         let datecomp1:NSDateComponents = cal!.components(NSCalendar.Unit.hour, from: now as Date) as NSDateComponents;
         let datecomp2:NSDateComponents = cal!.components(NSCalendar.Unit.minute, from: now as Date) as NSDateComponents;
